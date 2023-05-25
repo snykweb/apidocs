@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://snykweb.io/apidocs/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>API Documentation - SnykWeb API Documentation</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">SnykWeb API Documentation</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../about/" class="nav-link">About</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">API Documentation</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../notes/" class="nav-link">Release Notes</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../about/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../notes/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#take-user-input" class="nav-link">Take User Input</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#database-access" class="nav-link">Database Access</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#file-access" class="nav-link">File Access</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#common-functions" class="nav-link">Common Functions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#user-authentication" class="nav-link">User Authentication</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#form-handling" class="nav-link">Form Handling</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#response-handling" class="nav-link">Response Handling</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#security" class="nav-link">Security</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#utilities" class="nav-link">Utilities</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#logging-and-debugging" class="nav-link">Logging and Debugging</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#http-request-handling" class="nav-link">HTTP Request Handling</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#caching" class="nav-link">Caching</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#file-storage" class="nav-link">File Storage</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#email-handling" class="nav-link">Email Handling</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#low-level-access-api" class="nav-link">Low level Access API</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="take-user-input">Take User Input</h2>
+<pre><code>get_user_input(input_name:str) -&gt; str
+</code></pre>
+<p>Returns the user input value for the specified input name.</p>
+<pre><code>get_query_string() -&gt; str
+</code></pre>
+<p>Returns the full query string of the current URL.</p>
+<pre><code>get_request_headers() -&gt; dict
+</code></pre>
+<p>Returns a dictionary containing all the request headers.</p>
+<pre><code>get_post_data() -&gt; dict
+</code></pre>
+<p>Returns a dictionary containing all the POST data.</p>
+<pre><code>get_file_upload(file_input_name:str) -&gt; file
+</code></pre>
+<p>Returns the file uploaded by the user for the specified file input name.</p>
+<h2 id="database-access">Database Access</h2>
+<pre><code>connect_to_database() -&gt; db_connection
+</code></pre>
+<p>Returns a connection object to the configured database.</p>
+<pre><code>execute_sql_query(query:str) -&gt; query_result
+</code></pre>
+<p>Executes the given SQL query and returns the result.</p>
+<pre><code>execute_stored_procedure(proc_name:str, params:dict) -&gt; proc_result
+</code></pre>
+<p>Executes the specified stored procedure with the given parameters and returns the result.</p>
+<pre><code>execute_safesql_query(query:str,parameter) -&gt; query_result
+</code></pre>
+<p>Executes the given SQL query and returns the result. Does automatic escaping</p>
+<h2 id="file-access">File Access</h2>
+<pre><code>read_file(file_path:str) -&gt; str
+</code></pre>
+<p>Reads the contents of the specified file and returns it as a string.</p>
+<pre><code>write_file(content:str, filepath:str) -&gt; None
+</code></pre>
+<p>Writes the given content to the specified file.</p>
+<pre><code>delete_file(file_path:str) -&gt; None
+</code></pre>
+<p>Deletes the specified file.</p>
+<h2 id="common-functions">Common Functions</h2>
+<pre><code>redirect(url:str) -&gt; None
+</code></pre>
+<p>Redirects the user to the specified URL.</p>
+<pre><code>set_cookie(cookie_name:str, cookie_value:str) -&gt; None
+</code></pre>
+<p>Sets a cookie with the given name and value.</p>
+<pre><code>get_cookie(cookie_name:str) -&gt; str
+</code></pre>
+<p>Returns the value of the cookie with the given name.</p>
+<pre><code>clear_cookie(cookie_name:str) -&gt; None
+</code></pre>
+<p>Clears the cookie with the given name.</p>
+<pre><code>log(message:str) -&gt; None
+</code></pre>
+<p>Logs the given message to the server log.</p>
+<pre><code>send_email(to:str, subject:str, message:str) -&gt; None
+</code></pre>
+<p>Sends an email to the specified recipient with the given subject and message.</p>
+<h2 id="user-authentication">User Authentication</h2>
+<pre><code>login(username:str, password:str) -&gt; bool
+</code></pre>
+<p>Authenticates the user with the given username and password and returns a boolean indicating whether the authentication was successful.</p>
+<pre><code>logout() -&gt; None
+</code></pre>
+<p>Logs out the current user.</p>
+<pre><code>get_user_info() -&gt; dict
+</code></pre>
+<p>Returns a dictionary containing information about the currently logged in user.</p>
+<h2 id="form-handling">Form Handling</h2>
+<pre><code>validate_form(form_data:dict, validation_rules:dict) -&gt; dict
+</code></pre>
+<p>Validates the given form data against the specified validation rules and returns a dictionary containing any validation errors.</p>
+<pre><code>render_form(template:str, form_data:dict) -&gt; str
+</code></pre>
+<p>Renders the specified template with the given form data and returns the resulting HTML.</p>
+<pre><code>submit_form(form_data:dict) -&gt; None
+</code></pre>
+<p>Submits the given form data to the server.</p>
+<h2 id="response-handling">Response Handling</h2>
+<pre><code>render_template(template:str, context:dict) -&gt; str
+</code></pre>
+<p>Renders the specified template with the given context and returns the resulting HTML.</p>
+<pre><code>send_json(data:dict) -&gt; None
+</code></pre>
+<p>Sends the specified data as a JSON response.</p>
+<pre><code>send_file(file_path:str) -&gt; None
+</code></pre>
+<p>Sends the specified file as a response.</p>
+<h2 id="security">Security</h2>
+<pre><code>sanitize_input(input:str) -&gt; str
+</code></pre>
+<p>Sanitizes the given input to prevent cross-site scripting (XSS) attacks. Escapes &lt; and &gt; to its corresponding HTML entity.</p>
+<pre><code>hash_password(password:str,algorithm:str) -&gt; str
+</code></pre>
+<p>Hashes the given password for secure storage. A hashing algorithm can also be specified. Default is md5.</p>
+<pre><code>verify_password(password:str, hash:str) -&gt; bool
+</code></pre>
+<p>Verifies the given password against the specified hash and returns a boolean indicating whether the verification was successful.</p>
+<h2 id="utilities">Utilities</h2>
+<pre><code>generate_random_string(length:int) -&gt; str
+</code></pre>
+<p>Generates a random string of the specified length. A length must be specified</p>
+<pre><code>get_current_time() -&gt; datetime
+</code></pre>
+<p>Returns the current date and time.</p>
+<pre><code>sleep(seconds:float) -&gt; None
+</code></pre>
+<p>Pauses the execution of the program for the specified number of seconds.</p>
+<h2 id="logging-and-debugging">Logging and Debugging</h2>
+<pre><code>Logging(filepath:str) -&gt; None
+</code></pre>
+<p>Generates a logging constructor with a filepath to save the log data to.</p>
+<pre><code>debug(message:str) -&gt; None
+</code></pre>
+<p>Logs a debug message to the server log.</p>
+<pre><code>info(message:str) -&gt; None
+</code></pre>
+<p>Logs an informational message to the server log.</p>
+<pre><code>warn(message:str) -&gt; None
+</code></pre>
+<p>Logs a warning message to the server log.</p>
+<pre><code>error(message:str) -&gt; None
+</code></pre>
+<p>Logs an error message to the server log.</p>
+<h2 id="http-request-handling">HTTP Request Handling</h2>
+<pre><code>get(url:str, params:dict=None, headers:dict=None) -&gt; dict
+</code></pre>
+<p>Sends an HTTP GET request to the specified URL with the specified query parameters and headers, and returns the response as a dictionary.</p>
+<pre><code>post(url:str, data:dict=None, headers:dict=None) -&gt; dict
+</code></pre>
+<p>Sends an HTTP POST request to the specified URL with the specified data and headers, and returns the response as a dictionary.</p>
+<pre><code>put(url:str, data:dict=None, headers:dict=None) -&gt; dict
+</code></pre>
+<p>Sends an HTTP PUT request to the specified URL with the specified data and headers, and returns the response as a dictionary.</p>
+<pre><code>delete(url:str, data:dict=None, headers:dict=None) -&gt; dict
+</code></pre>
+<p>Sends an HTTP DELETE request to the specified URL with the specified data and headers, and returns the response as a dictionary.</p>
+<pre><code>getuseragent(url:str, data:dict=None, headers:dict=None) -&gt; dict
+</code></pre>
+<p>Sends an HTTP DELETE request to the specified URL with the specified data and headers, and returns the response as a dictionary.</p>
+<h2 id="caching">Caching</h2>
+<pre><code>set_cache(key:str, value:str, ttl:int=None) -&gt; None
+</code></pre>
+<p>Sets a value in the cache with the specified key and optional time-to-live (TTL).</p>
+<pre><code>get_cache(key:str) -&gt; str
+</code></pre>
+<p>Retrieves the value from the cache with the specified key.</p>
+<pre><code>delete_cache(key:str) -&gt; None
+</code></pre>
+<p>Deletes the value from the cache with the specified key.</p>
+<h2 id="file-storage">File Storage</h2>
+<pre><code>upload_file(file:file, folder:str=None) -&gt; str
+</code></pre>
+<p>Uploads the specified file to the server and returns the URL where the file can be accessed.</p>
+<pre><code>download_file(url:str) -&gt; file
+</code></pre>
+<p>Downloads the file from the specified URL and returns it as a file object.</p>
+<pre><code>delete_file_from_server(url:str) -&gt; None
+</code></pre>
+<p>Deletes the file from the server at the specified URL.</p>
+<h2 id="email-handling">Email Handling</h2>
+<pre><code>send_email_with_attachment(to:str, subject:str, message:str, attachment:str) -&gt; None
+</code></pre>
+<p>Sends an email with the specified subject, message, and attachment to the specified recipient.</p>
+<pre><code>send_email_template(to:str, template:str, context:dict) -&gt; None
+</code></pre>
+<p>Renders the specified email template with the given context and sends the resulting email to the specified recipient.</p>
+<h2 id="low-level-access-api">Low level Access API</h2>
+<p>Allows access to the underlying C API</p>
+<pre><code>execute_c_function(function_name: str, args: List[Any]) -&gt; Any
+</code></pre>
+<p>Executes the specified C function with the given arguments and returns the result.</p>
+<ul>
+<li>function_name: The name of the C function to execute.</li>
+<li>args: A list of arguments to pass to the C function.</li>
+</ul>
+<p>Example:</p>
+<pre><code>HTTP POST /execute-c-function
+Content-Type: application/json
+
+{
+    &quot;function_name&quot;: &quot;add_numbers&quot;,
+    &quot;args&quot;: [1, 2, 3]
+}
+
+Response:
+
+{
+    &quot;result&quot;: 6
+}
+</code></pre>
+<pre><code>create_socket(socket_type: str, port: int) -&gt; str
+</code></pre>
+<p>Creates a new socket of the specified type and port and returns a unique socket identifier.</p>
+<ul>
+<li>socket_type: The type of socket to create (e.g., "TCP", "UDP").
+8 port: The port number to use for the socket.</li>
+</ul>
+<p>Example:</p>
+<pre><code>HTTP POST /create-socket
+Content-Type: application/json
+
+{
+    &quot;socket_type&quot;: &quot;TCP&quot;,
+    &quot;port&quot;: 80
+}
+
+Response:
+
+{
+    &quot;socket_id&quot;: &quot;1234&quot;
+}
+</code></pre>
+<pre><code>send_data(socket_id: int, data: bytes,flags: int) -&gt; None
+</code></pre>
+<p>Sends the specified data over the socket with the given identifier.</p>
+<ul>
+<li>socket_id: The identifier of the socket to use for sending data.</li>
+<li>data: The data to send, encoded as bytes.</li>
+</ul>
+<p>Example:</p>
+<pre><code>HTTP POST /send-data
+Content-Type: application/json
+
+{
+    &quot;socket_id&quot;: 1234,
+    &quot;data&quot;: &quot;Hello, world!&quot;.encode(&quot;utf-8&quot;)
+}
+
+Response:
+
+HTTP 200 OK
+</code></pre>
+<pre><code>recv_data(socket_id: int, data: bytes, size: length, flags: int) -&gt; None
+</code></pre>
+<p>Recieves the specified data over the socket with the given identifier and stores it in a buffer. </p>
+<ul>
+<li>socket_id: The identifier of the socket to use for sending data.</li>
+<li>data: The data recieved, encoded as bytes.</li>
+<li>length: The length in bytes of the buffer. If the MSG_CONNTERM flag is set, the length of the buffer must be zero.</li>
+<li>flags: The flags parameter is set by specifying one or more of the following flags. Can be empty. If more than one flag is specified, the logical OR operator ( | ) must be used to separate them. The MSG_CONNTERM flag is mutually exclusive with other flags.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
