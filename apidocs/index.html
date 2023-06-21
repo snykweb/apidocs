@@ -81,7 +81,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="2"><a href="#take-user-input" class="nav-link">Take User Input</a>
+            <li class="nav-item" data-level="2"><a href="#http-request-handling" class="nav-link">HTTP Request Handling</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -131,16 +131,6 @@
               </ul>
             </li>
             
-            <li class="nav-item" data-level="2"><a href="#http-request-handling" class="nav-link">HTTP Request Handling</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="2"><a href="#caching" class="nav-link">Caching</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
             <li class="nav-item" data-level="2"><a href="#file-storage" class="nav-link">File Storage</a>
               <ul class="nav flex-column">
               </ul>
@@ -160,22 +150,34 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h2 id="take-user-input">Take User Input</h2>
-<pre><code>get_user_input(input_name:str) -&gt; str
+<h2 id="http-request-handling">HTTP Request Handling</h2>
+<pre><code>get_request_args(paramname:str) -&gt; string
 </code></pre>
-<p>Returns the user input value for the specified input name.</p>
-<pre><code>get_query_string() -&gt; str
+<p>Returns the parameter provided from a GET request.</p>
+<pre><code>post_request_args(paramname:str) -&gt; string
 </code></pre>
-<p>Returns the full query string of the current URL.</p>
+<p>Returns the parameter provided from a POST request.</p>
+<pre><code>request_get_query_string() -&gt; str
+</code></pre>
+<p>Returns the full query string of the current request.</p>
 <pre><code>get_request_headers() -&gt; dict
 </code></pre>
 <p>Returns a dictionary containing all the request headers.</p>
-<pre><code>get_post_data() -&gt; dict
+<pre><code>get_request_post_data() -&gt; dict
 </code></pre>
 <p>Returns a dictionary containing all the POST data.</p>
-<pre><code>get_file_upload(file_input_name:str) -&gt; file
+<pre><code>get_request_file_upload(file_input_name:str) -&gt; file
 </code></pre>
 <p>Returns the file uploaded by the user for the specified file input name.</p>
+<pre><code>getuseragent() -&gt; string
+</code></pre>
+<p>Gets the useragent string from an HTTP request</p>
+<pre><code>get(url:str, params:dict=None, headers:dict=None) -&gt; dict
+</code></pre>
+<p>Sends an HTTP GET request to the specified URL with the specified query parameters and headers, and returns the response as a dictionary.</p>
+<pre><code>post(url:str, data:dict=None, headers:dict=None) -&gt; dict
+</code></pre>
+<p>Sends an HTTP POST request to the specified URL with the specified data and headers, and returns the response as a dictionary.</p>
 <h2 id="database-access">Database Access</h2>
 <pre><code>connect_to_database() -&gt; db_connection
 </code></pre>
@@ -284,32 +286,6 @@
 <pre><code>error(message:str) -&gt; None
 </code></pre>
 <p>Logs an error message to the server log.</p>
-<h2 id="http-request-handling">HTTP Request Handling</h2>
-<pre><code>get(url:str, params:dict=None, headers:dict=None) -&gt; dict
-</code></pre>
-<p>Sends an HTTP GET request to the specified URL with the specified query parameters and headers, and returns the response as a dictionary.</p>
-<pre><code>post(url:str, data:dict=None, headers:dict=None) -&gt; dict
-</code></pre>
-<p>Sends an HTTP POST request to the specified URL with the specified data and headers, and returns the response as a dictionary.</p>
-<pre><code>put(url:str, data:dict=None, headers:dict=None) -&gt; dict
-</code></pre>
-<p>Sends an HTTP PUT request to the specified URL with the specified data and headers, and returns the response as a dictionary.</p>
-<pre><code>delete(url:str, data:dict=None, headers:dict=None) -&gt; dict
-</code></pre>
-<p>Sends an HTTP DELETE request to the specified URL with the specified data and headers, and returns the response as a dictionary.</p>
-<pre><code>getuseragent(url:str, data:dict=None, headers:dict=None) -&gt; dict
-</code></pre>
-<p>Sends an HTTP DELETE request to the specified URL with the specified data and headers, and returns the response as a dictionary.</p>
-<h2 id="caching">Caching</h2>
-<pre><code>set_cache(key:str, value:str, ttl:int=None) -&gt; None
-</code></pre>
-<p>Sets a value in the cache with the specified key and optional time-to-live (TTL).</p>
-<pre><code>get_cache(key:str) -&gt; str
-</code></pre>
-<p>Retrieves the value from the cache with the specified key.</p>
-<pre><code>delete_cache(key:str) -&gt; None
-</code></pre>
-<p>Deletes the value from the cache with the specified key.</p>
 <h2 id="file-storage">File Storage</h2>
 <pre><code>upload_file(file:file, folder:str=None) -&gt; str
 </code></pre>
